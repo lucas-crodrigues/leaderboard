@@ -1,12 +1,12 @@
 const scores = [
-{ name: 'name', score: 100, id: 1 },
-{ name: 'name', score: 80, id: 2 },
-{ name: 'name', score: 135, id: 3 },
-{ name: 'name', score: 115, id: 4 },
-{ name: 'name', score: 130, id: 5 },
+  { name: 'name', score: 100, id: 1 },
+  { name: 'name', score: 80, id: 2 },
+  { name: 'name', score: 135, id: 3 },
+  { name: 'name', score: 115, id: 4 },
+  { name: 'name', score: 130, id: 5 },
 ];
 
-export const markupScores = () => {
+const markupScores = () => {
   let allScores = '';
   scores.forEach((item) => {
     allScores += `
@@ -18,3 +18,5 @@ export const markupScores = () => {
   });
   return allScores;
 };
+
+export default markupScores;

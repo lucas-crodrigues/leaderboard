@@ -1,6 +1,8 @@
-import { markupScores } from "./scores.js";
+import markupScores from './scores.js';
 
-export const renderScores = () => {
+const renderScores = () => {
   const scoresUl = document.querySelector('ul');
   scoresUl.innerHTML = markupScores();
-}
+};
+
+export default renderScores;
