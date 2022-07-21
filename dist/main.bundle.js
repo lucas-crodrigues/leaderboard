@@ -115,27 +115,27 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var _modules_ui_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/ui.js */ \"./src/modules/ui.js\");\n\n\n\n\nwindow.addEventListener('DOMContentLoaded', () => (0,_modules_ui_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])());\n\n//# sourceURL=webpack://leaderboard/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var _modules_submitScore_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/submitScore.js */ \"./src/modules/submitScore.js\");\n/* harmony import */ var _modules_getScores_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/getScores.js */ \"./src/modules/getScores.js\");\n\n\n\n\n\n\nwindow.addEventListener('DOMContentLoaded', () => (0,_modules_getScores_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])());\n\ndocument.querySelector('.score-head button').addEventListener('click', () => {\n  document.querySelector('ul').innerHTML = '';\n  (0,_modules_getScores_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\n});\n\nconst form = document.querySelector('form');\n\nform.addEventListener('submit', (e) => {\n  e.preventDefault();\n  (0,_modules_submitScore_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n  form.reset();\n});\n\n//# sourceURL=webpack://leaderboard/./src/index.js?");
 
 /***/ }),
 
-/***/ "./src/modules/scores.js":
-/*!*******************************!*\
-  !*** ./src/modules/scores.js ***!
-  \*******************************/
+/***/ "./src/modules/getScores.js":
+/*!**********************************!*\
+  !*** ./src/modules/getScores.js ***!
+  \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst scores = [\n  { name: 'name', score: 100, id: 1 },\n  { name: 'name', score: 80, id: 2 },\n  { name: 'name', score: 135, id: 3 },\n  { name: 'name', score: 115, id: 4 },\n  { name: 'name', score: 130, id: 5 },\n];\n\nconst markupScores = () => {\n  let allScores = '';\n  scores.forEach((item) => {\n    allScores += `\n    <li class=\"user-input\" id=\"u_${item.id}\">\n      <p class=\"name\" id=\"n_${item.id}\">${item.name}: </p>\n      <p class=\"score\" id=\"s_${item.id}\">${item.score}</p>\n    </li>\n    `;\n  });\n  return allScores;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (markupScores);\n\n\n//# sourceURL=webpack://leaderboard/./src/modules/scores.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/yNLjqEafBIwNI7YgMLpw/scores/';\n\nconst listUl = document.querySelector('ul');\n\nconst getScores = () => {\n  fetch(url).then(async (response) => {\n    const data = await response.json();\n    const resultArr = data.result;\n    resultArr.sort((a, b) => b.score - a.score);\n    return resultArr;\n  })\n    .then((resultArr) => {\n      if (resultArr.length > 30) {\n        resultArr.length = 30;\n      }\n      for (let i = 0; i < resultArr.length; i += 1) {\n        const newscore = document.createElement('li');\n        newscore.textContent = `${i + 1} - ${resultArr[i].user} : ${resultArr[i].score}`;\n        listUl.appendChild(newscore);\n      }\n    });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getScores);\n\n//# sourceURL=webpack://leaderboard/./src/modules/getScores.js?");
 
 /***/ }),
 
-/***/ "./src/modules/ui.js":
-/*!***************************!*\
-  !*** ./src/modules/ui.js ***!
-  \***************************/
+/***/ "./src/modules/submitScore.js":
+/*!************************************!*\
+  !*** ./src/modules/submitScore.js ***!
+  \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _scores_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scores.js */ \"./src/modules/scores.js\");\n\n\nconst renderScores = () => {\n  const scoresUl = document.querySelector('ul');\n  scoresUl.innerHTML = (0,_scores_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderScores);\n\n//# sourceURL=webpack://leaderboard/./src/modules/ui.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/yNLjqEafBIwNI7YgMLpw/scores/';\n\nconst submitScore = () => {\n  const userInput = document.querySelector('.user-input').value;\n  const scoreInput = document.querySelector('.score-input').value;\n\n  fetch(url, {\n    method: 'POST',\n    headers: { 'Content-type': 'application/json; charset=UTF-8' },\n    body: JSON.stringify({\n      user: userInput,\n      score: scoreInput,\n    }),\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (submitScore);\n\n\n//# sourceURL=webpack://leaderboard/./src/modules/submitScore.js?");
 
 /***/ })
 
