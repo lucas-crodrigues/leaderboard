@@ -1,4 +1,4 @@
-# To-do list
+# Leaderboard
 
 This is the leaderboard app for the fourth week of the second module in the Microverse program.
 
