@@ -10,7 +10,10 @@ const getScores = () => {
     return resultArr;
   })
   .then((resultArr) => {
-    for (let i = 0; i < 10; i += 1) {
+    if (resultArr.length > 30) {
+      resultArr.length = 30;
+    };
+    for (let i = 0; i < resultArr.length; i += 1) {
       const newscore = document.createElement('li');
       newscore.textContent = `${i + 1} - ${resultArr[i].user} : ${resultArr[i].score}`;
       listUl.appendChild(newscore);
