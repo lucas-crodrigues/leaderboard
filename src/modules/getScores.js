@@ -10,8 +10,8 @@ const getScores = () => {
     return resultArr;
   })
     .then((resultArr) => {
-      if (resultArr.length > 30) {
-        resultArr.length = 30;
+      if (resultArr.length > 20) {
+        resultArr.length = 20;
       }
       resultArr.forEach((result, index) => {
         const newscore = document.createElement('li');
