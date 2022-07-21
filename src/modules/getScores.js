@@ -6,7 +6,6 @@ const getScores = () => {
   fetch(url).then(async (response) => {
     const data = await response.json();
     const resultArr = data.result;
-    console.log(resultArr);
     return resultArr;
   })
   .then((resultArr) => {
