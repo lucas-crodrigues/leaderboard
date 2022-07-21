@@ -6,12 +6,13 @@ const getScores = () => {
   fetch(url).then(async (response) => {
     const data = await response.json();
     const resultArr = data.result;
+    resultArr.sort((a, b) => b.score - a.score);
     return resultArr;
   })
   .then((resultArr) => {
-    for (let i = 0; i < 11; i += 1) {
+    for (let i = 0; i < 10; i += 1) {
       const newscore = document.createElement('li');
-      newscore.textContent = `${resultArr[i].user} : ${resultArr[i].score}`;
+      newscore.textContent = `${i + 1} - ${resultArr[i].user} : ${resultArr[i].score}`;
       listUl.appendChild(newscore);
     }
   });
