@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const SRC = path.resolve(__dirname, 'src/main/js');
 
 module.exports = {
   mode: 'development',
@@ -29,6 +30,11 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
+      },
+      {
+        test: /\.(ogg|mp3|wav|mpe?g)$/i,
+        include: SRC,
+        loader: 'file-loader'
       },
     ],
   },
