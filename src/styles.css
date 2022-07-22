@@ -1,6 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Share+Tech+Mono&display=swap');
+
+* {
+  font-family: 'Share Tech Mono', monospace;
+}
+
+html {
+  background-image: url(art/asset.gif);
+}
+
+button {
+  font-family: 'Share Tech Mono', monospace;
+  background-color: blue;
+  color: blueviolet;
+  font-size: larger;
+  transition: all 0.5s ease-out;
+  cursor: pointer;
+  height: min-content;
+  font-weight: 600;
+}
+
+form button {
+  align-self: flex-end;
+}
+
+button:hover {
+  color: blue;
+  background-color: blueviolet;
+}
+
+input {
+  background-color: rgba(137, 43, 226, 0.442);
+  font-size: 20px;
+  color: rgb(255, 238, 0);
+}
+
 body {
   display: flex;
   flex-direction: column;
+  background-image: url(art/fb261b84862c43e3c7aef306507833b6.gif);
+  color: blueviolet;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  max-width: 1220px;
+  height: 100vh;
+  min-height: min-content;
+  margin: auto;
 }
 
 .content {
@@ -9,23 +54,31 @@ body {
 }
 
 h1 {
-  font-size: 50px;
-  margin-left: 25px;
+  font-family: 'Share Tech Mono', monospace;
+  color: rgba(0, 255, 255, 0.7);
+  font-size: 90px;
+  text-align: center;
+}
+
+h3 {
+  font-family: 'Share Tech Mono', monospace;
+  color: blueviolet;
+  font-size: 40px;
+  text-align: center;
 }
 
 .scores-section {
   width: 50%;
 }
 
+.scores {
+  margin: 0;
+}
+
 .score-head {
   display: flex;
   align-items: center;
   justify-content: space-around;
-}
-
-button {
-  cursor: pointer;
-  height: min-content;
 }
 
 ul {
@@ -37,11 +90,15 @@ li {
   list-style: none;
   display: flex;
   border-bottom: 1px solid gray;
+  background-color: rgba(0, 0, 0, 0.6);
   padding-left: 20px;
+  font-size: 22px;
+  color: aqua;
 }
 
 .scores > li:nth-of-type(even) {
-  background-color: beige;
+  background-color: rgba(80, 52, 107, 0.273);
+  color: yellow;
 }
 
 .form-section {
@@ -56,8 +113,4 @@ form {
 
 form input {
   margin-bottom: 20px;
-}
-
-form button {
-  align-self: flex-end;
 }

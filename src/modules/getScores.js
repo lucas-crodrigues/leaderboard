@@ -10,14 +10,14 @@ const getScores = () => {
     return resultArr;
   })
     .then((resultArr) => {
-      if (resultArr.length > 30) {
-        resultArr.length = 30;
+      if (resultArr.length > 20) {
+        resultArr.length = 20;
       }
-      for (let i = 0; i < resultArr.length; i += 1) {
+      resultArr.forEach((result, index) => {
         const newscore = document.createElement('li');
-        newscore.textContent = `${i + 1} - ${resultArr[i].user} : ${resultArr[i].score}`;
+        newscore.textContent = `${index + 1} - ${result.user} : ${result.score}`;
         listUl.appendChild(newscore);
-      }
+      });
     });
 };
 
