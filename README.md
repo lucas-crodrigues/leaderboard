@@ -20,12 +20,11 @@ This is the leaderboard app for the fourth week of the second module in the Micr
 
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
+To clone the repo run the line `git clone https://github.com/lucas-crodrigues/leaderboard.git` on your console.
 
-  1- Download files <br>
-  2- Run index.html in browser
-
-To clone the repo run the line `git clone https://github.com/lucas-crodrigues/leaderboard.git` on your console:
+To get a local copy up and running, run these command lines on your console:
+  1-  `npm install` <br>
+  2-  `npm start`
 
 ## Authors
 
