@@ -12,7 +12,7 @@ This is the leaderboard app for the fourth week of the second module in the Micr
 
 ## Live Demo
 
- [N/A]()
+ [Leaderboard](https://lucas-crodrigues.github.io/leaderboard/dist/)
 
  ## Loom video
 
