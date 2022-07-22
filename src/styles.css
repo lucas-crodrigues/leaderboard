@@ -14,6 +14,13 @@ button {
   color: blueviolet;
   font-size: larger;
   transition: all 0.5s ease-out;
+  cursor: pointer;
+  height: min-content;
+  font-weight: 600;
+}
+
+form button {
+  align-self: flex-end;
 }
 
 button:hover {
@@ -74,12 +81,6 @@ h3 {
   justify-content: space-around;
 }
 
-button {
-  cursor: pointer;
-  height: min-content;
-  font-weight: 600;
-}
-
 ul {
   border: 1px solid gray;
   padding: 0;
@@ -112,8 +113,4 @@ form {
 
 form input {
   margin-bottom: 20px;
-}
-
-form button {
-  align-self: flex-end;
 }

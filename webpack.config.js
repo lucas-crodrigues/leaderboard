@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const SRC = path.resolve(__dirname, 'src/main/js');
 
 module.exports = {
@@ -34,7 +35,7 @@ module.exports = {
       {
         test: /\.(ogg|mp3|wav|mpe?g)$/i,
         include: SRC,
-        loader: 'file-loader'
+        loader: 'file-loader',
       },
     ],
   },

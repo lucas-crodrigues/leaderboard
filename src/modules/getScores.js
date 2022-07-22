@@ -17,8 +17,8 @@ const getScores = () => {
         const newscore = document.createElement('li');
         newscore.textContent = `${index + 1} - ${result.user} : ${result.score}`;
         listUl.appendChild(newscore);
-      }
-    )});
+      });
+    });
 };
 
 export default getScores;
