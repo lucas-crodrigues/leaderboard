@@ -1,7 +1,5 @@
 import './styles.css';
-
 import submitScore from './modules/submitScore.js';
-
 import getScores from './modules/getScores.js';
 
 window.addEventListener('DOMContentLoaded', () => getScores());
